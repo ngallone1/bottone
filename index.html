@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottone Interattivo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #bottone {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="bottone" src="bottone_alzato.png" alt="Bottone">
+    <audio id="suono" src="audio.mp3"></audio>
+    
+    <script>
+        document.getElementById("bottone").addEventListener("click", function() {
+            let bottone = this;
+            let audio = document.getElementById("suono");
+            
+            bottone.src = "bottone_premuto.png";
+            audio.play();
+            
+            setTimeout(() => {
+                bottone.src = "bottone_alzato.png";
+            }, 500); // Cambia immagine dopo 500ms
+        });
+    </script>
+</body>
+</html>

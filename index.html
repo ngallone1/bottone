@@ -14,6 +14,11 @@
         }
         #bottone {
             cursor: pointer;
+            transition: transform 0.1s ease, filter 0.1s ease;
+        }
+        #bottone:active {
+            transform: scale(0.9);
+            filter: brightness(0.8);
         }
     </style>
 </head>
@@ -26,11 +31,16 @@
             let bottone = this;
             let audio = document.getElementById("suono");
             
+            // Cambia immagine al click
+            bottone.src = "bottone_premuto.png";
+            
+            // Avvia il suono
             audio.play();
             
+            // Torna all'immagine originale dopo 200ms
             setTimeout(() => {
-                
-            }, 500); 
+                bottone.src = "bottone_alzato.png";
+            }, 200);
         });
     </script>
 </body>

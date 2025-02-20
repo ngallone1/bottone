@@ -16,9 +16,13 @@
             cursor: pointer;
             transition: transform 0.1s ease, filter 0.1s ease;
         }
-        #bottone:active {
-            transform: scale(0.9);
-            filter: brightness(0.8);
+        .cliccato {
+            animation: pressEffect 0.2s ease;
+        }
+        @keyframes pressEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.85); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -31,16 +35,16 @@
             let bottone = this;
             let audio = document.getElementById("suono");
             
-            // Cambia immagine al click
-            bottone.src = "bottone_premuto.png";
-            
+            // Aggiunge l'animazione di pressione
+            bottone.classList.add("cliccato");
+
+            // Rimuove l'animazione dopo la fine dell'effetto
+            setTimeout(() => {
+                bottone.classList.remove("cliccato");
+            }, 200);
+
             // Avvia il suono
             audio.play();
-            
-            // Torna all'immagine originale dopo 200ms
-            setTimeout(() => {
-                bottone.src = "bottone_alzato.png";
-            }, 200);
         });
     </script>
 </body>

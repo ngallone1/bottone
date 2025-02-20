@@ -15,6 +15,8 @@
         #bottone {
             cursor: pointer;
             transition: transform 0.1s ease, filter 0.1s ease;
+            outline: none; /* Rimuove il focus visibile */
+            -webkit-tap-highlight-color: transparent; /* Rimuove il riquadro celeste su mobile */
         }
         .cliccato {
             transform: scale(0.85);
@@ -34,7 +36,7 @@
             // Aggiunge la classe per simulare la pressione
             bottone.classList.add("cliccato");
 
-            // Rimuove l'effetto dopo 500ms per far sembrare il bottone premuto più a lungo
+            // Rimuove l'effetto dopo 1500ms per far sembrare il bottone premuto più a lungo
             setTimeout(() => {
                 bottone.classList.remove("cliccato");
             }, 1500);
